@@ -11,7 +11,7 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Function to fetch top anime with score near 9
+  
   useEffect(() => {
     const fetchTopRatedAnime = async () => {
       setLoading(true);
@@ -39,7 +39,6 @@ const Main = () => {
   return (
     <>
       <div className="main-container">
-        {/* Sidebar */}
         <aside className="sidebar">
           <div className="sidebar-section">
             <Sidebar

@@ -46,13 +46,12 @@ const AnimePage = () => {
     <div id="anime__body">
       <div id="anime__main">
         <div className="anime__container">
-          {/* Back Button */}
           <div className="row">
             <div className="anime__selected--top">
               <Link to="/Series">
-                <FontAwesomeIcon icon="fas fa-arrow-left" />
-              </Link>
+                <FontAwesomeIcon icon="fas fa-arrow-left" />              
               <h2 className="anime__selected--title--top">Back</h2>
+              </Link>
             </div>
           </div>
 
@@ -93,7 +92,7 @@ const AnimePage = () => {
             </div>
           </div>
 
-          {/* Recommendations */}
+          
           <div className="recommendations">
             <h3>Recommended Anime</h3>
             <div className="recommendations__list">

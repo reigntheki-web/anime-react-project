@@ -8,7 +8,7 @@ import AnimePage from "../pages/AnimePage";
 const Header = () => {
   const debounceRef = React.useRef(null);
 
-  // Function to show a basic loader
+  
   const showLoader = (loaderContent) => {
     const animeGrid = document.getElementById('animeGrid');
     if (animeGrid) {
@@ -16,7 +16,7 @@ const Header = () => {
     }
   };
 
-  // Load default list of 25 anime
+  
   const loadDefaultAnime = async () => {
     showLoader();
     const animeGrid = document.getElementById('animeGrid');
@@ -51,7 +51,7 @@ const Header = () => {
     }
   };
 
- // Hand le search input
+ 
   const handleSearch = (e) => {
     clearTimeout(debounceRef.current);
     const value = (e.target.value || '').toLowerCase().trim();
@@ -61,13 +61,13 @@ const Header = () => {
       if (!animeGrid) return;
 
       if (!value) {
-        // When input is cleared, load 25 anime
+        
         loadDefaultAnime();
         return;
       }
 
-      // Show loading
-      showLoader(<AnimeCard />);
+      
+      showLoader();
 
       try {
         const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(value)}&limit=25`);
@@ -80,7 +80,7 @@ const Header = () => {
           return;
         }
 
-        // Limit search results to 6
+        
         data.data.slice(0, 6).forEach(anime => {
           const genres = (anime.genres || []).map(g => g.name).join(', ');
           const img = anime.images?.jpg?.image_url || '';
