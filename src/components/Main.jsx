@@ -3,41 +3,58 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Rightsidebar from "./ui/Rightsidebar";
 import Sidebar from "./ui/Sidebar";
 import axios from "axios";
-import Animecard from "./ui/Animecard";
+import Header from "./Header";
+import AnimeGrid from "./ui/AnimeGrid";
 
-const Main = () => {
+const Main = ({ searchQuery }) => {
   const [playButton, setPlayButton] = useState(null);
   const [animeItems, setAnimeItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isloading, setIsLoading] = useState(false);
+  const [results, setResults] = useState([]);
 
-  
+
+
+   // Load default list
+  const loadDefaultAnime = async () => {
+    setIsLoading(true);
+    const response = await fetch('https://api.jikan.moe/v4/anime?limit=25');
+    const data = await response.json();
+    
+    setResults(data.data || []);
+    setIsLoading(false);
+  };
+
+  // Handle search input
+  const handleSearch = async (query) => {
+    if (query.trim() === '') {
+      loadDefaultAnime();
+      return;
+    }
+
+    setIsLoading(true);
+    const response = await fetch(
+      `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=6`
+    );
+    const data = await response.json();
+    setResults(data.data || []);
+    
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    const fetchTopRatedAnime = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const res = await axios.get(`https://api.jikan.moe/v4/top/anime?limit=25`);
-        const topScoreAnime = res.data.data.filter(anime => Math.round(anime.score) === 9);
-        setAnimeItems(topScoreAnime);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to fetch top-rated anime");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTopRatedAnime();
+    loadDefaultAnime();
   }, []);
+
 
   useEffect(() => {
     const button = document.querySelector(".play-button");
     setPlayButton(button);
   }, []);
 
+
   return (
     <>
+      <Header onSearch={handleSearch} />
       <div className="main-container">
         <aside className="sidebar">
           <div className="sidebar-section">
@@ -110,19 +127,10 @@ const Main = () => {
           
           <section className="section">
             <h2 className="section-title">Popular Anime</h2>
-            {loading && <div className="loader spinner"></div>}
-            {error && <p>{error}</p>}
-
             
-            <div className="anime-grid" id="animeGrid">
-              {animeItems.length > 0
-                ? animeItems.map((anime) => (
-                    <Animecard key={anime.mal_id} anime={anime} />
-                  ))
-                : !loading && (
-                    <p>No results found.</p>
-                  )}
-            </div>
+            <AnimeGrid results={results} isLoading={isloading}/>
+            
+            
           </section>
         </main>
 

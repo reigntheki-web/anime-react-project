@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const AnimePage = () => {
   const { animeId } = useParams();
@@ -43,6 +44,8 @@ const AnimePage = () => {
   if (!anime) return null;
 
   return (
+    <>
+    
     <div id="anime__body">
       <div id="anime__main">
         <div className="anime__container">
@@ -120,6 +123,7 @@ const AnimePage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

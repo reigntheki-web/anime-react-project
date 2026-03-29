@@ -4,33 +4,48 @@ import Animecard from "../components/ui/Animecard";
 import useAnimeData from "../components/ui/useAnimeData";
 import { Link } from "react-router-dom";
 import AnimePage from "./AnimePage";
+import AnimeGrid from "../components/ui/AnimeGrid";
+import Header from "../components/Header";
 
-const Series = () => {
- 
+const Series = ({ searchQuery }) => {
+ const [results, setResults] = useState([]);
+ const [isLoading, setIsLoading] = useState(false)
 
+   // Load default list
+  const loadDefaultAnime = async () => {
+    setIsLoading(true);
+    const response = await fetch('https://api.jikan.moe/v4/anime?limit=25');
+    const data = await response.json();
+    setResults(data.data || []);
+    setIsLoading(false);
+  };
 
-  const { animeItems, loading, error } = useAnimeData(
-    "https://api.jikan.moe/v4/top/anime?&limit=25"
-  );
+  // Handle search input
+  const handleSearch = async (query) => {
+    if (query.trim() === '') {
+      loadDefaultAnime();
+      return;
+    }
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+    setIsLoading(true);
+    const response = await fetch(
+      `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=6`
+    );
+    const data = await response.json();
+    setResults(data.data || []);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    loadDefaultAnime();
+  }, []);
 
   return (
     <div>
+      <Header onSearch={handleSearch} />
       <section className="section">
         <h2 className="section-title">Anime Top Charts</h2>
-        {loading && <div className="loader spinner"></div>}
-        {error && <p style={{ color: "white" }}>{error}</p>}
-        <div className="anime-grid" id="animeGrid">
-          {animeItems.length > 0 ? (
-            animeItems.map((anime) => (
-              <Animecard key={anime.mal_id} anime={anime} />
-            ))
-          ) : (
-            !loading && <p style={{ color: "white" }}>No results found.</p>
-          )}
-        </div>
+        <AnimeGrid results={results} isLoading={isLoading}/>
       </section>
     </div>
   );
