@@ -32,24 +32,28 @@ const SignInRegister = () => {
 
   return (
     <div>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className="btn btn-primary" onClick={handleSignIn}>
-        Sign In
-      </button>
-      <button className="btn btn-secondary" onClick={handleRegister}>
-        Register
-      </button>
+      <div className="sign-in-register">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="register-buttons">
+        <button className="btn btn-primary" onClick={handleSignIn}>
+          Sign In
+        </button>
+        <button className="btn btn-secondary" onClick={handleRegister}>
+          Register
+        </button>
+      </div>
     </div>
   );
 };

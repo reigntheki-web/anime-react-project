@@ -20,9 +20,9 @@ return(
 
   
     <>
-      <Header onSearch={setSearchQuery}/>
-      
+     
       <Router>
+         <Header onSearch={setSearchQuery}/>      
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/Main" element={<Main searchQuery={searchQuery}/>} />

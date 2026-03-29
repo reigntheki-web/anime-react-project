@@ -586,6 +586,22 @@ Anime Grid and Cards
     color: #ccc;
 }
 
+.sign-in-register {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #151524;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.register-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* 
 
