@@ -1,6 +1,5 @@
 import App from "./App.css";
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header.jsx";
 import Main from "./components/Main.jsx";
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
 import Landing from "./components/Landing.jsx";
@@ -22,7 +21,7 @@ return(
     <>
      
       <Router>
-         <Header onSearch={setSearchQuery}/>      
+              
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/Main" element={<Main searchQuery={searchQuery}/>} />
