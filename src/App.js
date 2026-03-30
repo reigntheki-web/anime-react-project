@@ -1,3 +1,4 @@
+import "./App.css"
 import Main from "./components/Main.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing.jsx";
