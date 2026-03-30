@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/anime-react-project/static/css/main.65d9855c.css",
+    "main.js": "/anime-react-project/static/js/main.38d44d11.js",
+    "static/js/453.59757a75.chunk.js": "/anime-react-project/static/js/453.59757a75.chunk.js",
+    "static/media/animeLogo.png": "/anime-react-project/static/media/animeLogo.4a5a161032b788ab3690.png",
+    "static/media/animeTopTwo.jpg": "/anime-react-project/static/media/animeTopTwo.0cf1dbff339d2b939c38.jpg",
+    "index.html": "/anime-react-project/index.html",
+    "main.65d9855c.css.map": "/anime-react-project/static/css/main.65d9855c.css.map",
+    "main.38d44d11.js.map": "/anime-react-project/static/js/main.38d44d11.js.map",
+    "453.59757a75.chunk.js.map": "/anime-react-project/static/js/453.59757a75.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65d9855c.css",
+    "static/js/main.38d44d11.js"
+  ]
+}
