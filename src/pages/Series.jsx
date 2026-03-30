@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import AnimeGrid from "../components/ui/AnimeGrid";
 import Header from "../components/Header";
 
-const Series = ({ searchQuery }) => {
+const Series = () => {
  const [results, setResults] = useState([]);
  const [isLoading, setIsLoading] = useState(false)
 

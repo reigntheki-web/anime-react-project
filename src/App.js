@@ -15,7 +15,7 @@ return(
               
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/Main" element={<Main searchQuery={searchQuery}/>} />
+          <Route path="/Main" element={<Main />} />
           <Route path="/Series" element={<Series searchQuery={searchQuery}/>} />
           <Route path="/anime/:animeId" element={<AnimePage />} />
         </Routes>        
