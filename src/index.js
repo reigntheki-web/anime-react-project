@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import { faPlay, faUser, faCog, faUserCircle, faClock, faCalendar, faFilm, faHome,  faDownload, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Animecard from "../components/ui/Animecard";
-import useAnimeData from "../components/ui/useAnimeData";
-import { Link } from "react-router-dom";
-import AnimePage from "./AnimePage";
+import { useState, useEffect } from "react";
 import AnimeGrid from "../components/ui/AnimeGrid";
 import Header from "../components/Header";
 

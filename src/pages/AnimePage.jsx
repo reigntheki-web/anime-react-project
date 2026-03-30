@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../components/Header";
 
 const AnimePage = () => {
   const { animeId } = useParams();
@@ -85,10 +84,10 @@ const AnimePage = () => {
               </div>
 
               <div className="watch-buttons">
-                <a href="#" className="btn btn-primary" onClick={() => alert("Play button clicked!")}>
+                <a href="#watch" className="btn btn-primary" onClick={() => alert("Play button clicked!")}>
                   <FontAwesomeIcon icon="fas fa-play" /> Watch
                 </a>
-                <a href="#" className="btn btn-secondary" onClick={() => alert("Added to watchlist!")}>
+                <a href="#watchlist" className="btn btn-secondary" onClick={() => alert("Added to watchlist!")}>
                   <FontAwesomeIcon icon="fas fa-users" /> Watchlist
                 </a>
               </div>

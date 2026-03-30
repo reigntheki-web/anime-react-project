@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Rightsidebar from "./ui/Rightsidebar";
 import Sidebar from "./ui/Sidebar";
-import axios from "axios";
 import Header from "./Header";
 import AnimeGrid from "./ui/AnimeGrid";
 
-const Main = ({ searchQuery }) => {
-  const [playButton, setPlayButton] = useState(null);
-  const [animeItems, setAnimeItems] = useState([]);
+const Main = () => {
   const [isloading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
 
@@ -46,10 +43,10 @@ const Main = ({ searchQuery }) => {
   }, []);
 
 
-  useEffect(() => {
-    const button = document.querySelector(".play-button");
-    setPlayButton(button);
-  }, []);
+  // useEffect(() => {
+  //   const button = document.querySelector(".play-button");
+  //   setPlayButton(button);
+  // }, []);
 
 
   return (
@@ -107,10 +104,10 @@ const Main = ({ searchQuery }) => {
                   something, something of equal value must be lost.”
                 </p>
                 <button className="watch-buttons">
-                  <a href="#" className="btn btn-primary">
+                  <a href="#description" className="btn btn-primary">
                     <FontAwesomeIcon icon="fas fa-play" /> Description
                   </a>
-                  <a href="#" className="btn btn-secondary">
+                  <a href="#characters" className="btn btn-secondary">
                     <FontAwesomeIcon icon="fas fa-users" /> Characters
                   </a>
                 </button>

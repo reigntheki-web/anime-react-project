@@ -12,13 +12,13 @@ const Sidebar = ({
   return (
     <>
       <h3 className="sidebar-title">{title}</h3>
-      <a href="#" className="sidebar-item active" onClick={() => alert("still working on this")}>
+      <a href="#first" className="sidebar-item active" onClick={() => alert("still working on this")}>
         {icon} {subTitle}
       </a>
-      <a href="#" className="sidebar-item" onClick={() => alert("still working on this")}>
+      <a href="#second" className="sidebar-item" onClick={() => alert("still working on this")}>
         {icon2} {subTitle2}
       </a>
-      <a href="#" className="sidebar-item" onClick={() => alert("still working on this")}>
+      <a href="#third" className="sidebar-item" onClick={() => alert("still working on this")}>
         {icon3} {subTitle3}
       </a>
     </>
